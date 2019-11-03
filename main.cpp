@@ -4,6 +4,7 @@
  *   SPDX-License-Identifier: GPL-3.0-or-later
  */
 #include <QGuiApplication>
+#include <QWindow>
 #include <QQmlApplicationEngine>
 #include <QMetaObject>
 #include <QDBusConnection>
@@ -34,9 +35,17 @@ int main(int argc, char *argv[])
     }
 
     QString n = engine.rootObjects().first()->objectName();
+    QObject *mainwin = engine.rootObjects().first();
     QObject *player = engine.rootObjects().first()->findChild<QObject*>("player");
 
     CDBusIfc dbuf_ifc(&app, player);
+
+    QStringList cmdlineargs = app.arguments();
+
+    if(cmdlineargs.contains("--fullscreen")) {
+        mainwin->setProperty("visibility", QWindow::FullScreen);
+    }
+
 
     QString defaultURL("rtsp://<username>:<password>@hostname/path/to/video.mp4");
     QString URL_string = QSettings().value("url", defaultURL).toString();

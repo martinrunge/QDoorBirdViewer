@@ -5,7 +5,6 @@
  */
 #include "CDBusIfc.h"
 #include "dbus-interfaceadaptor.h"
-#include "DBifc.h"
 
 CDBusIfc::CDBusIfc(QObject *parent, QObject *player) : QObject(parent), m_player(player)
 {
@@ -13,7 +12,7 @@ CDBusIfc::CDBusIfc(QObject *parent, QObject *player) : QObject(parent), m_player
     ptr = new DoorbirdviewerAdaptor(this);
 
     QDBusConnection connection = QDBusConnection::sessionBus();
-    connection.registerObject("/", this);
+    bool success = connection.registerObject("/", this);
     connection.registerService("de.rungenetz.doorbirdviewer");
 
 }

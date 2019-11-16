@@ -7,26 +7,16 @@
 #define CDBUSIFC_H
 
 #include <QObject>
-#include <QUrl>
 
 class CDBusIfc : public QObject
 {
     Q_OBJECT
 public:
-    explicit CDBusIfc(QObject *parent = nullptr, QObject *player = nullptr);
+    explicit CDBusIfc(QObject *parent = nullptr);
 
 signals:
 
 public slots:
-    void play();
-    void stop();
-
-    void setURL(QUrl url) { m_url = url; };
-
-private:
-    QObject *m_player;
-    QUrl m_url;
-
 };
 
 #endif // CDBUSIFC_H

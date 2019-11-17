@@ -6,10 +6,10 @@
     <method name="stop"/>
     <method name="fullscreen"/>
     <method name="geometry">
-       <arg name="xpos" type="i" direction="in"/>
-       <arg name="ypos" type="i" direction="in"/>
        <arg name="width" type="i" direction="in"/>
        <arg name="height" type="i" direction="in"/>
+       <arg name="xpos" type="i" direction="in"/>
+       <arg name="ypos" type="i" direction="in"/>
     </method>
   </interface>
 </node>

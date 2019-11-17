@@ -50,7 +50,7 @@ void CDBusAdapter::fullscreen() {
 
 }
 
-void CDBusAdapter::geometry(int x, int y, int width, int height)
+void CDBusAdapter::geometry(int width, int height, int x, int y)
 {
     qDebug() << "geometry(" << x << y << width << height << ")";
     m_mainwin->setProperty("width", width);

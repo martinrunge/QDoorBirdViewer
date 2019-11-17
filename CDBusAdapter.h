@@ -29,7 +29,7 @@ public slots:
     void play();
     void stop();
     void fullscreen();
-    void geometry(int x, int y, int width, int height);
+    void geometry(int width, int height, int x, int y );
 
     void setURL(QUrl url) { m_url = url; };
 

@@ -6,9 +6,11 @@ import QtMultimedia 5.0
 Window {
     id: window
     visible: true
-//    width: 640
-//    height: 480
+
     title: qsTr("Tür Kamera")
+
+    //flags: Qt.FramelessWindowHint
+
     property url videosrc;
 
     MediaPlayer {

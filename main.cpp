@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
                 int ypos = ypos_str.toInt(&ok);
                 if(!ok) break;
 
-                ifc.geometry(height, width, xpos , ypos);
+                ifc.geometry(width, height, xpos , ypos);
                 return 0;
             }
 

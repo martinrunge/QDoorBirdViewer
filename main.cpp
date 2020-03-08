@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
         }
     }
 
-
     QGuiApplication app(argc, argv);
 
     app.setOrganizationName("martinrunge");
@@ -53,6 +52,10 @@ int main(int argc, char *argv[])
 
             if(cmdlineargs.contains("--fullscreen")) {
                 ifc.fullscreen();
+                return 0;
+            }
+            if(cmdlineargs.contains("--minimize")) {
+                ifc.minimize();
                 return 0;
             }
             if(!geometrystr.isEmpty()) {

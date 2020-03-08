@@ -5,6 +5,7 @@
     <method name="play"/>
     <method name="stop"/>
     <method name="fullscreen"/>
+    <method name="minimize"/>
     <method name="geometry">
        <arg name="width" type="i" direction="in"/>
        <arg name="height" type="i" direction="in"/>

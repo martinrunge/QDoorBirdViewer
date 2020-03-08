@@ -47,7 +47,11 @@ void CDBusAdapter::stop() {
 void CDBusAdapter::fullscreen() {
     qDebug() << "fullscreen() called";
     m_mainwin->setProperty("visibility", QWindow::FullScreen);
+}
 
+void CDBusAdapter::minimize() {
+    qDebug() << "minimize() called";
+    m_mainwin->setProperty("visibility", QWindow::Minimized);
 }
 
 void CDBusAdapter::geometry(int width, int height, int x, int y)

@@ -64,6 +64,7 @@ Window {
         onTriggered: {
             player.stop()
             player.source = ""
+            console.log("Timer expired, stopping stream");
         }
     }
 
@@ -71,10 +72,13 @@ Window {
     onWindowStateChanged: {
         console.log("onWindowStateChanged: ", windowState);
         if (windowState === Qt.WindowMinimized) {
-            console.log("Minimized");
+            console.log("Minimized, starting timer");
+            timer.start()
+        } if (windowState !== Qt.WindowActive && windowState !== Qt.WindowNoState ) {
+            console.log("Window not active, starting timer");
             timer.start()
         } else {
-            console.log("Play Video");
+            console.log("Play Video, stopping timer");
             timer.stop()  // in case timer is running
             if(player.playbackState !== Qt.PlayingState) {
                 player.source = videosrc

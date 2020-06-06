@@ -17,6 +17,10 @@ Window {
         id: player
         objectName: "player"
         autoPlay: true
+        onError: {
+
+           console.log(error, errorString);
+        }
     }
 
     VideoOutput {
@@ -29,7 +33,7 @@ Window {
                 icon.source: "icons/close-24px.svg"
                 icon.height: parent.height / 3;
                 icon.color: "#000000"
-                width: parent.width / 3;
+                width: parent.height / 3;
                 height: parent.height / 3;
                 anchors.top: parent.Top;
                 anchors.right: parent.right;
@@ -44,7 +48,7 @@ Window {
                 icon.source: "icons/fullscreen-24px.svg"
                 icon.height: parent.height / 3;
                 icon.color: "#000000"
-                width: parent.width / 3;
+                width: parent.height / 3;
                 height: parent.height / 3;
                 anchors.top: parent.Top;
                 anchors.left: parent.left;
@@ -74,10 +78,21 @@ Window {
         if (windowState === Qt.WindowMinimized) {
             console.log("Minimized, starting timer");
             timer.start()
-        } if (windowState !== Qt.WindowActive && windowState !== Qt.WindowNoState ) {
-            console.log("Window not active, starting timer");
-            timer.start()
         } else {
+            switch(windowState)  {
+               case Qt.WindowNoState:
+                   console.log("Window state -> 'NoState'");
+                   break;
+                case Qt.WindowMaximized:
+                    console.log("Window state -> 'Maximized'");
+                    break;
+                case Qt.WindowFullScreen:
+                    console.log("Window state -> 'Fullscreen'");
+                    break;
+                case Qt.WindowActive:
+                    console.log("Window state -> 'Active'");
+                    break;
+            }
             console.log("Play Video, stopping timer");
             timer.stop()  // in case timer is running
             if(player.playbackState !== Qt.PlayingState) {

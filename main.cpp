@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QString geometrystr;
-    // hack: if -geometry was given, ave it before QApplicatiob removes it from the argument list
+    // hack: if -geometry was given, save it before QApplication removes it from the argument list
     for (int i=1; i < argc - 1; i++) {
         char* strmatch = strstr(argv[i], "geometry");
         if(strmatch != nullptr) {

@@ -83,6 +83,7 @@ int main(int argc, char *argv[])
                 if(!ok) break;
 
                 ifc.geometry(width, height, xpos , ypos);
+                ifc.play();
                 return 0;
             }
 

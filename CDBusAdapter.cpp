@@ -30,7 +30,7 @@ void CDBusAdapter::play() {
     QVariant returnedValue;
     bool res = QMetaObject::invokeMethod(m_player, "play");
 
-    qDebug() << "QML function returned:" << returnedValue.toString();
+    qDebug() << "CDBusAdapter::play(): QML function returned:" << returnedValue.toString();
 }
 
 void CDBusAdapter::stop() {
@@ -39,7 +39,7 @@ void CDBusAdapter::stop() {
 
     m_player->setProperty("source", QUrl());
 
-    qDebug() << "QML function returned:" << returnedValue.toString();
+    qDebug() << "CDBusAdapter::stop(): QML function returned:" << returnedValue.toString();
 }
 
 
